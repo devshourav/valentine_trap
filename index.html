@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Little Surprise for You 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Floating hearts decoration -->
+    <div class="heart-bg" style="top: 10%; left: 15%;">💕</div>
+    <div class="heart-bg" style="top: 25%; right: 10%; animation-delay: 1s;">💝</div>
+    <div class="heart-bg" style="bottom: 20%; left: 10%; animation-delay: 2s;">💗</div>
+    <div class="heart-bg" style="bottom: 15%; right: 20%; animation-delay: 3s;">💖</div>
+
+    <main class="valentine-card" id="mainCard">
+        <div class="character-container">
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+            <div class="sparkle">✨</div>
+            <img 
+                id="characterGif" 
+                src="https://media.giphy.com/media/cLS1cfxvGOPVpf9g3y/giphy.gif" 
+                alt="Cute character with heart"
+                class="character-image"
+            >
+        </div>
+        
+        <h1 class="question-text" id="questionText">
+            Will you be my Valentine?
+        </h1>
+        
+        <div class="action-group" id="actionGroup">
+            <button id="yesBtn" class="btn btn-yes" aria-label="Accept Valentine invitation">
+                Yes!
+            </button>
+            <button id="noBtn" class="btn btn-no" aria-label="Decline Valentine invitation">
+                No
+            </button>
+        </div>
+    </main>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

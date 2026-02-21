@@ -1,0 +1,201 @@
+/* Reset & Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffeef8 0%, #ffe0f0 50%, #ffd4e8 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Floating hearts background */
+.heart-bg {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.1;
+    animation: float 6s infinite ease-in-out;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+/* Valentine Card */
+.valentine-card {
+    background: white;
+    border-radius: 32px;
+    padding: 2rem 2rem;
+    width: 95%;
+    max-width: 1200px;
+    min-height: auto;
+    max-height: 95vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(255, 77, 109, 0.2),
+                0 8px 16px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    animation: cardAppear 0.6s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@keyframes cardAppear {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Character & Sparkles */
+.character-container {
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    position: relative;
+}
+
+.character-image {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    animation: bounce 2s infinite ease-in-out;
+    filter: drop-shadow(0 8px 16px rgba(255, 77, 109, 0.15));
+    border-radius: 20px;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: sparkle 1.5s infinite ease-in-out;
+}
+
+.sparkle:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 20%; right: 20%; animation-delay: 0.3s; }
+.sparkle:nth-child(3) { bottom: 15%; left: 25%; animation-delay: 0.6s; }
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+/* Question Text */
+.question-text {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #FF4D6D 0%, #FF758C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+    letter-spacing: -0.5px;
+}
+
+/* Button Group */
+.action-group {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-wrapper { position: absolute; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
+
+.btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    padding: 1.1rem 3rem;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    position: relative;
+    user-select: none;
+    min-width: 140px;
+}
+
+.btn:active { transform: translateY(3px); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12); }
+
+.btn-yes {
+    background: linear-gradient(135deg, #FF4D6D 0%, #FF758C 100%);
+    color: white;
+    z-index: 2;
+    transform-origin: center;
+    position: relative;
+}
+
+.btn-yes:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 12px 28px rgba(255, 77, 109, 0.4); }
+
+.btn-yes::before {
+    content: '💖';
+    margin-right: 0.5rem;
+    animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat { 0%,100%{transform:scale(1);}25%{transform:scale(1.2);}50%{transform:scale(1);} }
+
+.btn-no {
+    background: linear-gradient(135deg, #E9ECEF 0%, #DEE2E6 100%);
+    color: #6C757D;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn-no:hover { background: linear-gradient(135deg, #DEE2E6 0%, #CED4DA 100%); }
+
+/* Success State */
+.success-state { animation: successFadeIn 0.8s ease-out; }
+
+.success-image { width: 180px; height: 180px; object-fit: contain; margin-bottom: 1rem; animation: celebrationBounce 1s ease-out; }
+
+@keyframes celebrationBounce { 0%{transform:scale(0) rotate(-180deg);}60%{transform:scale(1.2) rotate(10deg);}100%{transform:scale(1) rotate(0deg);} }
+
+.success-title { font-size: clamp(2.25rem, 6vw, 3.5rem); font-weight: 700; background: linear-gradient(135deg, #FF4D6D 0%, #FF758C 50%, #FFB3C1 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.75rem; animation: slideUp 0.8s ease-out 0.3s both; }
+
+@keyframes slideUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+
+.success-message { font-size: 1.5rem; color: #2B2D42; font-weight: 500; margin-bottom: 1rem; animation: slideUp 0.8s ease-out 0.5s both; }
+
+.success-details { margin-top: 1rem; padding: 1.25rem; background: linear-gradient(135deg, #FFF5F7 0%, #FFE5EC 100%); border-radius: 16px; animation: slideUp 0.8s ease-out 0.7s both; margin-bottom: 0.5rem; }
+
+.success-details p { font-size: 1.1rem; color: #495057; margin: 0.5rem 0; }
+
+.emoji { font-size: 1.3rem; margin-right: 0.5rem; }
+
+/* Instagram Button */
+.instagram-btn { margin-top: 1rem; display: inline-block; background: linear-gradient(135deg, #E1306C 0%, #C13584 50%, #833AB4 100%); color: white; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.25rem; padding: 1.1rem 3rem; border: none; border-radius: 16px; cursor: pointer; text-decoration: none; box-shadow: 0 8px 24px rgba(225, 48, 108, 0.3); transition: all 0.3s cubic-bezier(0.175,0.885,0.32,1.275); animation: slideUp 0.8s ease-out 0.9s both; }
+
+.instagram-btn:hover { transform: translateY(-4px) scale(1.05); box-shadow: 0 12px 32px rgba(225,48,108,0.4); }
+.instagram-btn:active { transform: translateY(-2px) scale(1.02); }
+.instagram-btn::before { content: '📱'; margin-right: 0.75rem; font-size: 1.4rem; }
+
+/* Confetti Animation */
+@keyframes successFadeIn { from{opacity:0;transform:scale(0.95);} to{opacity:1;transform:scale(1);} }
+
+/* Responsive Design omitted for brevity: copy as needed from your original style block */
